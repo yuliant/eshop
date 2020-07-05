@@ -13,12 +13,48 @@
                 <?php
                 $menu = $this->model_menu->menu_main();
                 foreach ($menu->result_array() as $row) {
-                    ?>
+                ?>
 
                     <li class="mobile-links__item">
                         <div class="mobile-links__item-title">
                             <a href="<?= base_url() . $row['link'] ?>" class="mobile-links__item-link">
                                 <?= $row['nama_menu'] ?>
+                            </a>
+                        </div>
+                    </li>
+
+                <?php } ?>
+
+                <?php if (!empty($this->session->id_pengguna)) { ?>
+
+                    <li class="mobile-links__item">
+                        <div class="mobile-links__item-title">
+                            <a href="<?php echo base_url('members/dashboard') ?>" class="mobile-links__item-link">
+                                <b>
+                                    Dashboard
+                                </b>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="mobile-links__item">
+                        <div class="mobile-links__item-title">
+                            <a href="javascript:void(0)" class="mobile-links__item-link" onclick="logout()">
+                                <b>
+                                    Keluar
+                                </b>
+                            </a>
+                        </div>
+                    </li>
+
+                <?php } else { ?>
+
+                    <li class="mobile-links__item">
+                        <div class="mobile-links__item-title">
+                            <a href="<?php echo base_url('login') ?>" class="mobile-links__item-link">
+                                <b>
+                                    Login
+                                </b>
                             </a>
                         </div>
                     </li>

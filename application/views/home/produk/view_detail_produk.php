@@ -101,24 +101,31 @@ $produk = $row['nama_produk'];
                 <?php } ?>
 
             </div>
-            <form id="product-form" class="product__options">
+            <?php if ($row['stok'] == 0) {
+                echo "<i style='color:red'>STOK SEDANG KOSONG</i>";
+            } else { ?>
 
-                <div class="form-group product__option">
-                    <input type="hidden" name="id_produk" value="<?= encrypt_url($row['id_produk']) ?>">
-                    <label class="product__option-label" for="product-quantity">Jumlah</label>
-                    <div class="product__actions">
-                        <div class="product__actions-item">
-                            <div class="input-number product__quantity"><input id="product-quantity" class="input-number__input form-control form-control-lg" type="number" min="1" value="1" name="jumlah">
-                                <div class="input-number__add"></div>
-                                <div class="input-number__sub"></div>
+                <form id="product-form" class="product__options">
+                    <div class="form-group product__option">
+                        <input type="hidden" name="id_produk" value="<?= encrypt_url($row['id_produk']) ?>">
+                        <label class="product__option-label" for="product-quantity">Jumlah</label>
+                        <div class="product__actions">
+                            <div class="product__actions-item">
+                                <div class="input-number product__quantity"><input id="product-quantity" class="input-number__input form-control form-control-lg" type="number" min="1" value="1" name="jumlah">
+                                    <div class="input-number__add"></div>
+                                    <div class="input-number__sub"></div>
+                                </div>
+                            </div>
+                            <div class="product__actions-item product__actions-item--addtocart">
+                                <a href="javascript:void(0)" class="btn btn-primary btn-lg" onclick="add2cart()">Tambah ke keranjang</a>
                             </div>
                         </div>
-                        <div class="product__actions-item product__actions-item--addtocart">
-                            <a href="javascript:void(0)" class="btn btn-primary btn-lg" onclick="add2cart()">Tambah ke keranjang</a>
-                        </div>
                     </div>
-                </div>
-            </form><!-- .product__options / end -->
+                </form>
+
+            <?php } ?>
+            <!-- .product__options / end -->
+
         </div><!-- .product__end -->
         <div class="product__footer text-center">
 

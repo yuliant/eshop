@@ -10,8 +10,12 @@
                     <?= form_error('user_email', '<small class="text-danger ml-1">', '</small>'); ?>
                 </div>
                 <div class=" form-group"><label>Password</label>
-                    <input type="password" name="password" class="form-control">
+                    <input type="password" name="password" class="form-control form-password">
                     <?= form_error('password', '<small class="text-danger ml-1">', '</small>'); ?>
+                </div>
+
+                <div>
+                    <input type="checkbox" class="form-checkbox"> Show password
                 </div>
 
                 <button type="submit" class="btn btn-primary mt-4">Login</button>

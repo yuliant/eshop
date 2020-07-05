@@ -55,7 +55,11 @@
                   ?>
                     <tr>
                       <td><?= $no ?> </td>
-                      <td><?= $row['kode_transaksi']; ?></td>
+                      <td>
+                        <a href="<?php echo base_url('admin/tracking/') . $row['kode_transaksi']  ?>">
+                          <?= $row['kode_transaksi']; ?>
+                        </a>
+                      </td>
                       <td style='color:red;'>Rp <?= rupiah($total['total'] + $total['ongkir']) ?></td>
                       <td><span style='text-transform:uppercase'> <?= $total['kurir'] ?></span> <?= ($total['service']) ?></td>
                       <td><?= $row['waktu_transaksi'] ?></td>
@@ -75,6 +79,7 @@
 
                         <a class='btn btn-info btn-xs' title='Detail data pesanan' href=' <?= base_url('admin/tracking/') . $row['kode_transaksi'] ?>'><i class='fas fa-search'></i></a>
                         <a class='btn btn-info btn-xs' title='Input Resi' href='<?= base_url('admin/pesanan_dikirim/') . $row['id_penjualan'] ?>'><i class='fas fa-edit'></i></a>
+                        <a class='btn btn-danger btn-xs' title='Delete data' href='<?= base_url('admin/delete_pesanan/') . $row['id_penjualan'] ?>'><i class='fas fa-trash' onclick="return confirm('Apa anda yakin untuk menghapus data ini?')"></i></a>
                       </td>
                     </tr>
                   <?php

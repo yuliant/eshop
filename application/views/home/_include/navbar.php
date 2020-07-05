@@ -39,15 +39,6 @@
                             </div>
 
                             <div class="mobile-header__indicators">
-                                <div class="indicator indicator--mobile-search indicator--mobile d-sm-none">
-                                    <button class="indicator__button">
-                                        <span class="indicator__area">
-                                            <svg width="20px" height="20px">
-                                                <use xlink:href="<?= base_url('assets/template/tema/') ?>images/sprite.svg#search-20"></use>
-                                            </svg>
-                                        </span>
-                                    </button>
-                                </div>
 
                                 <div class="indicator indicator--mobile">
                                     <a href="#" class="indicator__button" data-open="offcanvas-cart">
@@ -70,8 +61,17 @@
                                     </a>
                                 </div>
 
-                                <div class="indicator indicator--mobile">
+                                <div class="indicator indicator--mobile-search indicator--mobile d-sm-none">
+                                    <button class="indicator__button">
+                                        <span class="indicator__area">
+                                            <svg width="20px" height="20px">
+                                                <use xlink:href="<?= base_url('assets/template/tema/') ?>images/sprite.svg#search-20"></use>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
 
+                                <div class="indicator indicator--mobile">
                                     <a href="<?= base_url('members/dashboard') ?>" class="indicator__button">
                                         <span class="indicator__area">
                                             <svg width="20px" height="20px">
@@ -79,7 +79,6 @@
                                             </svg>
                                         </span>
                                     </a>
-
                                 </div>
 
                             </div>
@@ -105,9 +104,6 @@
                             <?php } ?>
 
                             <div class="topbar__spring"></div>
-
-
-
 
                         </div>
                     </div>
@@ -188,6 +184,25 @@
 
                                 <div class="nav-panel__indicators">
 
+                                    <div class="indicator">
+                                        <a href="#" class="indicator__button" data-open="offcanvas-cart">
+                                            <span class="indicator__area">
+                                                <svg width="20px" height="20px">
+                                                    <use xlink:href="<?= base_url('assets/template/tema/') ?>images/sprite.svg#cart-20"></use>
+                                                </svg>
+
+                                                <?php if (empty($isi_keranjang)) {
+                                                    echo '';
+                                                } else {
+                                                    echo "<span class='indicator__value'>";
+                                                    echo $isi_keranjang;
+                                                    echo "</span>";
+                                                }; ?>
+
+                                            </span>
+                                        </a>
+                                    </div>
+
                                     <div class="indicator indicator--trigger--click">
                                         <button type="button" class="indicator__button">
                                             <span class="indicator__area">
@@ -216,26 +231,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="indicator">
-                                        <a href="#" class="indicator__button" data-open="offcanvas-cart">
-                                            <span class="indicator__area">
-                                                <svg width="20px" height="20px">
-                                                    <use xlink:href="<?= base_url('assets/template/tema/') ?>images/sprite.svg#cart-20"></use>
-                                                </svg>
-
-                                                <?php if (empty($isi_keranjang)) {
-                                                    echo '';
-                                                } else {
-                                                    echo "<span class='indicator__value'>";
-                                                    echo $isi_keranjang;
-                                                    echo "</span>";
-                                                }; ?>
-
-                                            </span>
-                                        </a>
-
-                                    </div>
-
                                     <div class="indicator indicator--trigger--click">
 
                                         <a href="account-login.html" class="indicator__button">
@@ -261,10 +256,15 @@
                                                         <div class="form-group">
                                                             <label for="header-signin-password" class="sr-only">Password</label>
                                                             <div class="account-menu__form-forgot">
-                                                                <input name="password" id="header-signin-password" type="password" class="form-control form-control-sm" placeholder="Password">
+                                                                <input name="password" id="header-signin-password" type="password" class="form-control form-control-sm form-password" placeholder="Password">
                                                                 <!-- <a href="<?= base_url('auth/lupa_password') ?>" class="account-menu__form-forgot-link">Lupa?</a> -->
                                                             </div>
                                                         </div>
+
+                                                        <div class="form-group">
+                                                            <input type="checkbox" class="form-checkbox"> Show password
+                                                        </div>
+
                                                         <div class="form-group account-menu__form-button">
                                                             <button type="submit" name="submit" class="btn btn-primary btn-block">Login</button>
                                                         </div>

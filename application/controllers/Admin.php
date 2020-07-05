@@ -569,6 +569,14 @@ class Admin extends CI_Controller
 		$this->template->load('admin/template', 'admin/penjualan/view_pesanan_laporan', $data);
 	}
 
+	public function delete_pesanan()
+	{
+		//untuk menghapus data list pesanan.
+		$id = array('id_penjualan' => $this->uri->segment(3));
+		$this->model_app->delete('tb_toko_penjualan', $id);
+		redirect('admin/pesanan');
+	}
+
 	function print_pesanan()
 	{
 		cek_session();
